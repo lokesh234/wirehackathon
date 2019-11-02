@@ -46,17 +46,21 @@ function moveUp(){
 }
 */
 document.addEventListener("keyup", moveRight);
-function moveRight(){
+function moveRight(key){
+    if(key.keyCode == 37){
     if (bX < 218)
         bX += 25;
     fly.play();
+    }
 }
 
-document.addEventListener("keydown", moveLeft);
+document.addEventListener("keyup", moveLeft);
 function moveLeft(){
+    if(key.keyCode == 39){
     if (bX > 0)
         bX -= 25;
     fly.play();
+    }
 }
 
 // pipe coordinates

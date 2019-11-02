@@ -87,7 +87,7 @@ function draw(){
 
         // detect collision
         
-        if( bY + bird.height >= pipe[i].y && bY <= pipe[i].y + pipeNorth.height ){
+        if(bY <= pipe[i].y + pipeNorth.height && Math.abs(5 - (bX-pipe[i].x)) < 50){
             location.reload(); // reload the page
         }
         

@@ -30,7 +30,7 @@ var score = 0;
 var goatNoise = new Audio();
 var scor = new Audio();
 
-goatNoise.src = "sounds/fly.mp3";
+goatNoise.src = "sounds/Bleat.mp3";
 scor.src = "sounds/score.mp3";
 
 document.addEventListener("keyup", moveRight);

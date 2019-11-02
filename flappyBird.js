@@ -21,7 +21,7 @@ pipeSouth.src = "images/pipeSouth.png";
 var gap = 85;
 var constant;
 
-var bX = 10;
+var bX = 109;
 var bY = 512 - 130; // half between 0 and
 
 // var gravity = 1.5;
@@ -46,14 +46,13 @@ function moveUp(){
 }
 */
 document.addEventListener("keyup", moveRight);
-document.addEventListener("keydown", moveLeft);
-
 function moveRight(){
     if (bX < 218)
         bX += 25;
     fly.play();
 }
 
+document.addEventListener("keydown", moveLeft);
 function moveLeft(){
     if (bX > 0)
         bX -= 25;

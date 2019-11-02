@@ -9,9 +9,9 @@ var fg = new Image();
 var pipeNorth = new Image();
 var pipeSouth = new Image();
 
-bird.src = "images/hackathon_bird.png";
-bg.src = "images/bg.png";
-fg.src = "images/fg.png";
+bird.src = "Gompei_resize.png";
+bg.src = "Background.png";
+fg.src = "foreground1.png";
 pipeNorth.src = "images/pipeNorth.png";
 pipeSouth.src = "images/pipeSouth.png";
 
@@ -21,10 +21,10 @@ pipeSouth.src = "images/pipeSouth.png";
 var gap = 85;
 var constant;
 
-var bX = 10;
-var bY = 150;
+var bX = 109;
+var bY = 512 - 130; // half between 0 and
 
-var gravity = 1.5;
+// var gravity = 1.5;
 
 var score = 0;
 
@@ -37,12 +37,30 @@ fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 
 // on key down
-
+/*
 document.addEventListener("keydown",moveUp);
 
 function moveUp(){
     bY -= 25;
     fly.play();
+}
+*/
+document.addEventListener("keyup", moveRight);
+function moveRight(key){
+    if(key.keyCode == 37){
+    if (bX < 218)
+        bX += 25;
+    fly.play();
+    }
+}
+
+document.addEventListener("keyup", moveLeft);
+function moveLeft(){
+    if(key.keyCode == 39){
+    if (bX > 0)
+        bX -= 25;
+    fly.play();
+    }
 }
 
 // pipe coordinates
@@ -94,7 +112,7 @@ function draw(){
     
     ctx.drawImage(bird,bX,bY);
     
-    bY += gravity;
+    //bY += gravity;
     
     ctx.fillStyle = "#000";
     ctx.font = "20px Verdana";

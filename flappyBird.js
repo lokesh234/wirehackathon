@@ -12,7 +12,7 @@ var pipeSouth = new Image();
 bird.src = "Gompei_resize.png";
 bg.src = "Background.png";
 fg.src = "foreground1.png";
-pipeNorth.src = "images/pipeNorth.png";
+pipeNorth.src = "Bookicon.png";
 pipeSouth.src = "images/pipeSouth.png";
 
 
@@ -24,7 +24,7 @@ var constant;
 var bX = 109;
 var bY = 512 - 130; // half between 0 and
 
-// var gravity = 1.5;
+var gravity = 1.5;
 
 var score = 0;
 
@@ -36,15 +36,6 @@ var scor = new Audio();
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 
-// on key down
-/*
-document.addEventListener("keydown",moveUp);
-
-function moveUp(){
-    bY -= 25;
-    fly.play();
-}
-*/
 document.addEventListener("keyup", moveRight);
 function moveRight(key){
     if(key.keyCode == 39){
@@ -81,9 +72,9 @@ function draw(){
     
     for(var i = 0; i < pipe.length; i++){
         
-        constant = pipeNorth.height+gap;
+//        constant = pipeNorth.height+gap;
         ctx.drawImage(pipeNorth,pipe[i].x,pipe[i].y);
-        ctx.drawImage(pipeSouth,pipe[i].x,pipe[i].y+constant);
+//        ctx.drawImage(pipeSouth,pipe[i].x,pipe[i].y+constant);
              
         pipe[i].x--;
         
@@ -96,7 +87,7 @@ function draw(){
 
         // detect collision
         
-        if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY+bird.height >= pipe[i].y+constant) || bY + bird.height >=  cvs.height - fg.height){
+        if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width ){
             location.reload(); // reload the page
         }
         
@@ -111,8 +102,7 @@ function draw(){
     ctx.drawImage(fg,0,cvs.height - fg.height);
     
     ctx.drawImage(bird,bX,bY);
-    
-    //bY += gravity;
+
     
     ctx.fillStyle = "#000";
     ctx.font = "20px Verdana";

@@ -27,10 +27,10 @@ var score = 0;
 
 // audio files
 
-var fly = new Audio();
+var goatNoise = new Audio();
 var scor = new Audio();
 
-fly.src = "sounds/fly.mp3";
+goatNoise.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 
 document.addEventListener("keyup", moveRight);
@@ -38,7 +38,7 @@ function moveRight(key){
     if(key.keyCode == 39){
     if (bX < 218)
         bX += 25;
-    fly.play();
+    goatNoise.play();
     }
 }
 
@@ -47,7 +47,7 @@ function moveLeft(key){
     if(key.keyCode == 37){
     if (bX > 0)
         bX -= 25;
-    fly.play();
+    goatNoise.play();
     }
 }
 

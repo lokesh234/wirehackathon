@@ -1,0 +1,9 @@
+body{
+    color: red;
+    background: black;
+}
+
+
+#canvas{
+    border: 2px solid #d3d3d3;
+}

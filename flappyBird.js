@@ -17,6 +17,7 @@ pipeSouth.src = "images/pipeSouth.png";
 
 
 // some variables
+var drawMore = false;
 
 var gap = 85;
 var constant;
@@ -63,6 +64,10 @@ pipe[0] = {
     y : 0
 };
 
+pipe[1] = {
+    x : Math.floor(Math.random()*260), // TODO: actually do this right so it spawn randomly
+    y : 0
+};
 // draw images
 
 function draw(){
@@ -87,13 +92,15 @@ function draw(){
 
         // detect collision
         
-        if(bY <= pipe[i].y + pipeNorth.height && Math.abs(5 - (bX-pipe[i].x)) < 50){
+        if(bY + bird.height >= pipe[i].y && bY <= pipe[i].y + pipeNorth.height && Math.abs(5 - (bX-pipe[i].x)) < 50){
             location.reload(); // reload the page
+            drawMore = false;
         }
         
-        if(pipe[i].x == 5){
+        if(pipe[i].y >= 437){
             score++;
             scor.play();
+            drawMore = true;
         }
         
         
@@ -113,6 +120,10 @@ function draw(){
 }
 
 draw();
+
+while(drawMore) {
+    draw();
+}
 
 
 

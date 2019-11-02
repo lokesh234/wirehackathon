@@ -7,11 +7,18 @@ var goat = new Image();
 var bg = new Image();
 var fg = new Image();
 var book = new Image();
+var laptop = new Image();
+var mug = new Image();
+var smoothie = new Image();
+
 
 goat.src = "Gompei_resize.png";
 bg.src = "Background.png";
 fg.src = "foreground1.png";
 book.src = "Bookicon.png";
+laptop.src = "Laptopicon.png"
+mug.src = "Mug.png"
+smoothie.src = "Smoothieicon.png"
 
 
 // some variables
@@ -25,6 +32,7 @@ var bY = 512 - 130; // half between 0 and
 
 var score = 0;
 
+var stuff = [book, laptop, mug, smoothie]; //array of images
 // audio files
 
 var goatNoise = new Audio();
@@ -66,14 +74,15 @@ bk[1] = {
 };
 // draw images
 
+z = Math.floor(Math.random()*4);
 function draw(){
     
     ctx.drawImage(bg,0,0);
     
-    
     for(var i = 0; i < bk.length; i++){
         
-        ctx.drawImage(book,bk[i].x,bk[i].y);
+
+        ctx.drawImage(stuff[z],bk[i].x,bk[i].y);
              
         bk[i].y += 5;
         

@@ -59,7 +59,7 @@ function moveLeft(key){
 var pipe = [];
 
 pipe[0] = {
-    x : cvs.width,
+    x : cvs.width/10, // TODO: actually do this right so it spawn randomly
     y : 0
 };
 
@@ -76,7 +76,7 @@ function draw(){
         ctx.drawImage(pipeNorth,pipe[i].x,pipe[i].y);
 //        ctx.drawImage(pipeSouth,pipe[i].x,pipe[i].y+constant);
              
-        pipe[i].x--;
+        pipe[i].y++;
         
         if( pipe[i].x == 125 ){
             pipe.push({

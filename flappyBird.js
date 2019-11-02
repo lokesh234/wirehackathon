@@ -55,7 +55,7 @@ function moveRight(key){
 }
 
 document.addEventListener("keyup", moveLeft);
-function moveLeft(){
+function moveLeft(key){
     if(key.keyCode == 39){
     if (bX > 0)
         bX -= 25;

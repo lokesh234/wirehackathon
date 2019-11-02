@@ -3,17 +3,15 @@ var ctx = cvs.getContext("2d");
 
 // load images
 
-var bird = new Image();
+var goat = new Image();
 var bg = new Image();
 var fg = new Image();
-var pipeNorth = new Image();
-var pipeSouth = new Image();
+var book = new Image();
 
-bird.src = "Gompei_resize.png";
+goat.src = "Gompei_resize.png";
 bg.src = "Background.png";
 fg.src = "foreground1.png";
-pipeNorth.src = "Bookicon.png";
-pipeSouth.src = "images/pipeSouth.png";
+book.src = "Bookicon.png";
 
 
 // some variables
@@ -24,8 +22,6 @@ var constant;
 
 var bX = 109;
 var bY = 512 - 130; // half between 0 and
-
-var gravity = 1.5;
 
 var score = 0;
 
@@ -57,14 +53,14 @@ function moveLeft(key){
 
 // pipe coordinates
 
-var pipe = [];
+var bk = [];
 
-pipe[0] = {
+bk[0] = {
     x : Math.floor(Math.random()*260),
     y : 0
 };
 
-pipe[1] = {
+bk[1] = {
     x : Math.floor(Math.random()*260), 
     y : 0
 };
@@ -75,34 +71,32 @@ function draw(){
     ctx.drawImage(bg,0,0);
     
     
-    for(var i = 0; i < pipe.length; i++){
+    for(var i = 0; i < bk.length; i++){
         
-//        constant = pipeNorth.height+gap;
-        ctx.drawImage(pipeNorth,pipe[i].x,pipe[i].y);
-//        ctx.drawImage(pipeSouth,pipe[i].x,pipe[i].y+constant);
+        ctx.drawImage(book,bk[i].x,bk[i].y);
              
-        pipe[i].y += 5;
+        bk[i].y += 5;
         
-        if( pipe[i].x == 125 ){
-            pipe.push({
+        if( bk[i].x == 125 ){
+            bk.push({
                 x : cvs.width,
-                y : Math.floor(Math.random()*pipeNorth.height)-pipeNorth.height
+                y : Math.floor(Math.random()*book.height)-book.height
             }); 
         }
 
         // detect collision
         
-        if(bY + bird.height >= pipe[i].y && bY <= pipe[i].y + pipeNorth.height && Math.abs(5 - (bX-pipe[i].x)) < 50){
+        if(bY + goat.height >= bk[i].y && bY <= bk[i].y + book.height && Math.abs(5 - (bX-bk[i].x)) < 50){
             location.reload(); // reload the page
             drawMore = false;
         }
         
-        if(pipe[i].y >= 437){
+        if(bk[i].y >= 437){
             score++;
             scor.play();
             drawMore = true;
-            pipe[i].y = 0;
-            pipe[i].x = Math.floor(Math.random()*260);
+            bk[i].y = 0;
+            bk[i].x = Math.floor(Math.random()*260);
         }
         
         
@@ -110,7 +104,7 @@ function draw(){
 
     ctx.drawImage(fg,0,cvs.height - fg.height);
     
-    ctx.drawImage(bird,bX,bY);
+    ctx.drawImage(goat,bX,bY);
 
     
     ctx.fillStyle = "#000";
@@ -122,12 +116,6 @@ function draw(){
 }
 
 draw();
-
-/*
-while(drawMore) {
-    draw();
-}
-*/
 
 
 

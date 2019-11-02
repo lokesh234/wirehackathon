@@ -60,12 +60,12 @@ function moveLeft(key){
 var pipe = [];
 
 pipe[0] = {
-    x : Math.floor(Math.random()*260), // TODO: actually do this right so it spawn randomly
+    x : Math.floor(Math.random()*260),
     y : 0
 };
 
 pipe[1] = {
-    x : Math.floor(Math.random()*260), // TODO: actually do this right so it spawn randomly
+    x : Math.floor(Math.random()*260), 
     y : 0
 };
 // draw images
@@ -101,6 +101,8 @@ function draw(){
             score++;
             scor.play();
             drawMore = true;
+            pipe[i].y = 0;
+            pipe[i].x = Math.floor(Math.random()*260);
         }
         
         
@@ -121,10 +123,11 @@ function draw(){
 
 draw();
 
+/*
 while(drawMore) {
     draw();
 }
-
+*/
 
 
 

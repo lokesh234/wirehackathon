@@ -47,7 +47,7 @@ function moveUp(){
 */
 document.addEventListener("keyup", moveRight);
 function moveRight(key){
-    if(key.keyCode == 37){
+    if(key.keyCode == 39){
     if (bX < 218)
         bX += 25;
     fly.play();
@@ -56,7 +56,7 @@ function moveRight(key){
 
 document.addEventListener("keyup", moveLeft);
 function moveLeft(key){
-    if(key.keyCode == 39){
+    if(key.keyCode == 37){
     if (bX > 0)
         bX -= 25;
     fly.play();

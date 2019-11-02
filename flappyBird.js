@@ -51,7 +51,7 @@ function moveLeft(key){
     }
 }
 
-// pipe coordinates
+// book coordinates
 
 var bk = [];
 

@@ -10,6 +10,7 @@ var book = new Image();
 var laptop = new Image();
 var mug = new Image();
 var smoothie = new Image();
+var leshin = new Image();
 
 
 goat.src = "Gompei_resize.png";
@@ -19,7 +20,7 @@ book.src = "Bookicon.png";
 laptop.src = "Laptopicon.png"
 mug.src = "Mug.png"
 smoothie.src = "Smoothieicon.png"
-
+leshin.src = "Laurie_Leshin.png"
 
 // some variables
 var drawMore = false;
@@ -32,7 +33,7 @@ var bY = 512 - 130; // half between 0 and
 
 var score = 0;
 
-var stuff = [book, laptop, mug, smoothie]; //array of images
+var stuff = [book, laptop, mug, smoothie, leshin]; //array of images
 // audio files
 
 var goatNoise = new Audio();
@@ -74,7 +75,7 @@ bk[1] = {
 };
 // draw images
 
-z = Math.floor(Math.random()*4);
+z = Math.floor(Math.random()*5);
 function draw(){
     
     ctx.drawImage(bg,0,0);

@@ -10,7 +10,7 @@ var book = new Image();
 var laptop = new Image();
 var mug = new Image();
 var smoothie = new Image();
-var leshin = new Image();
+
 
 
 goat.src = "Gompei_resize.png";
@@ -20,7 +20,6 @@ book.src = "Bookicon.png";
 laptop.src = "Laptopicon.png"
 mug.src = "Mug.png"
 smoothie.src = "Smoothieicon.png"
-leshin.src = "Laurie_Leshin.png"
 
 // some variables
 var drawMore = false;
@@ -33,7 +32,7 @@ var bY = 512 - 130; // half between 0 and
 
 var score = 0;
 
-var stuff = [book, laptop, mug, smoothie, leshin]; //array of images
+var stuff = [book, laptop, mug, smoothie]; //array of images
 // audio files
 
 var goatNoise = new Audio();
@@ -70,37 +69,37 @@ bk[0] = {
 };
 
 bk[1] = {
-    x : Math.floor(Math.random()*260), 
+    x : Math.floor(Math.random()*260),
     y : 0
 };
 // draw images
 
-z = Math.floor(Math.random()*5);
+z = Math.floor(Math.random()*4);
 function draw(){
-    
+
     ctx.drawImage(bg,0,0);
-    
+
     for(var i = 0; i < bk.length; i++){
-        
+
 
         ctx.drawImage(stuff[z],bk[i].x,bk[i].y);
-             
+
         bk[i].y += 5;
-        
+
         if( bk[i].x == 125 ){
             bk.push({
                 x : cvs.width,
                 y : Math.floor(Math.random()*book.height)-book.height
-            }); 
+            });
         }
 
         // detect collision
-        
+
         if(bY + goat.height >= bk[i].y && bY <= bk[i].y + book.height && Math.abs(5 - (bX-bk[i].x)) < 50){
             location.reload(); // reload the page
             drawMore = false;
         }
-        
+
         if(bk[i].y >= 437){
             score++;
             scor.play();
@@ -108,44 +107,21 @@ function draw(){
             bk[i].y = 0;
             bk[i].x = Math.floor(Math.random()*260);
         }
-        
-        
+
+
     }
 
     ctx.drawImage(fg,0,cvs.height - fg.height);
-    
+
     ctx.drawImage(goat,bX,bY);
 
-    
+
     ctx.fillStyle = "#000";
     ctx.font = "20px Verdana";
     ctx.fillText("Score : "+score,10,cvs.height-20);
-    
+
     requestAnimationFrame(draw);
-    
+
 }
 
 draw();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
